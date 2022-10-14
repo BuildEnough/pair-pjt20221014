@@ -1,13 +1,17 @@
 from django.shortcuts import redirect, render
 from .models import Review
+from .forms import ppp
+
 
 # Create your views here.
 
 
 def index(request):
     All_Review = Review.objects.all()
+    form = ppp()
     context = {
         "a": All_Review,
+        "form": form,
     }
     return render(request, "articles/index.html", context)
 
