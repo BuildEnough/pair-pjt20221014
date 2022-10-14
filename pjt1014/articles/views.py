@@ -26,7 +26,7 @@ def create(request):
     return redirect("articles:index")
 
 
-def edit(request, pk):
+def edit(request, pk):  # 영화 데이터 수정 후 db저장
     d = Review.objects.get(pk=pk)
 
     title = request.GET.get("title")
@@ -47,7 +47,7 @@ def new(request):
     return render(request, "articles/new.html")
 
 
-def detail(request, pk):
+def detail(request, pk):  # 영화 자세히보기 (디테일페이지 idex if 분기)
     d = Review.objects.get(pk=pk)
     context = {
         "b": d,
@@ -60,10 +60,7 @@ def delete(request, pk):
     return redirect("articles:index")
 
 
-def update(request, pk):
+def update(request, pk):  # 영화 데이터 (수정 할 값 넣는 함수 )
     d = Review.objects.get(pk=pk)
-    context = {
-        "d": d 
-    }
-    return render(request, "articles/new.html", context)
-
+    context = {"d": d}
+    return render(request, "articles/edit.html", context)
