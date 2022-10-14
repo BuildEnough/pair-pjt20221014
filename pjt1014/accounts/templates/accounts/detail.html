@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{user_inpo.username}}님의 회원정보</h1>
+
+<p>id: {{user_inpo.username}}</p>
+
+
+<p>이메일: {{user_inpo.email}}</p>
+
+<p>성: {{user_inpo.last_name}}</p>
+
+<p>이름: {{user_inpo.first_name}}</p>
+
+<p>이메일: {{user_inpo.email}}</p>
+
+<p>가입시간: {{user_inpo.date_joined}}</p>
+
+<p>마지막으로 로그인한시간: {{user_inpo.last_login}}</p>
+
+
+<a href="{%url 'accounts:update' %}">회원정보수정</a>
+
+
+{% endblock %}

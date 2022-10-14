@@ -2,23 +2,28 @@
 {% block content %}
 {% load static %}
 {% load django_bootstrap5 %}
-<h1>영화리뷰 수정</h1>
 
-<form action="{% url 'articles:edit' d.pk %}">
-  <label for="title">제목: </label>
-  <input type="text" name="title" id="title" value={{d.title}}>
+<h1 class="text-center mt-5">영화리뷰 수정</h1>
 
-  <label for="content">내용: </label>
-  <textarea name="content" id="content" cols="30" rows="10">{{ d.content }}</textarea>
+<div class="d-flex justify-content-center row">
+  <div class="col-8">
+    <form class="d-flex flex-column" action="{% url 'articles:edit' d.pk %}">
+      <label for="title">제목: </label>
+      <input type="text" name="title" id="title" value={{d.title}}>
 
-  <label for="grade">평점: </label>
-  <input type="text" name="grade" id="grade" value={{d.grade}}>
+      <label for="content">내용: </label>
+      <textarea name="content" id="content" cols="30" rows="10">{{ d.content }}</textarea>
 
-  <label for="movie_name">영화제목: </label>
-  <input type="text" name="movie_name" id="movie_name" value={{d.movie_name}}>
+      <label for="grade">평점: </label>
+      <input type="text" name="grade" id="grade" value={{d.grade}}>
 
-  <input type="submit" value="제출">
-</form>
+      <label for="movie_name">영화제목: </label>
+      <input type="text" name="movie_name" id="movie_name" value={{d.movie_name}}>
+
+      <button type="submit" class="btn btn-secondary">수정</button>
+    </form>
+  </div>
+</div>
 
 
 

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>회원정보수정</h1>
+
+<form action="{% url 'accounts:update' %}" method="POST">
+    {%csrf_token%}
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_form change_form %}
+
+
+    <button type="submit" class="btn btn-secondary">수정완료</button>
+    <button type="button" class="btn btn-secondary"><a href="{% url 'accounts:index' %}">돌아가기</a></button>
+</form>
+
+{% endblock %}

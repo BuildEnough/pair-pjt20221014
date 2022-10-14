@@ -1,4 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-index
+
+
+
+
+<h1>인덱스 페이지</h1>
+
+
+
+
+
+
+
+<h3>회원가입 유저 이름</h3>
+
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">회원번호 </th>
+            <th scope="col">유저아이디</th>
+            <th scope="col">email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for u in all_user %}
+        <tr>
+            <th scope="row">{{ u.pk }}</th>
+            <td><a href="{% url 'accounts:detail' u.pk %}">{{u.username}}</a></td>
+            <td>{{ u.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
 {% endblock %}
